@@ -1,15 +1,37 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const filterSelect = document.getElementById('filterSelect');
-    const productItems = document.querySelectorAll('.product-card');
+const svg = document.getElementById("drawingArea");
+let isDrawing = false;
+let currentPath;
 
-    function filterProducts() {
-        const selectedCategory = filterSelect.value;
-        productItems.forEach(item => {
-            const itemCategory = item.getAttribute('data-category');
-            item.style.display = (selectedCategory === 'All' || selectedCategory === itemCategory) ? 'block' : 'none';
-        });
-    }
-
-    filterSelect.addEventListener('change', filterProducts);
-    filterProducts(); // Initial load filter
+svg.addEventListener("mousedown", (e) => {
+  isDrawing = true;
+  currentPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  currentPath.setAttribute("stroke", "blue");
+  currentPath.setAttribute("stroke-width", "2");
+  currentPath.setAttribute("fill", "none");
+  let point = getMousePosition(e);
+  currentPath.setAttribute("d", `M ${point.x} ${point.y}`);
+  svg.appendChild(currentPath);
 });
+
+svg.addEventListener("mousemove", (e) => {
+  if (!isDrawing) return;
+  let point = getMousePosition(e);
+  let d = currentPath.getAttribute("d");
+  currentPath.setAttribute("d", `${d} L ${point.x} ${point.y}`);
+});
+
+svg.addEventListener("mouseup", () => {
+  isDrawing = false;
+});
+
+svg.addEventListener("mouseleave", () => {
+  isDrawing = false;
+});
+
+function getMousePosition(e) {
+  const rect = svg.getBoundingClientRect();
+  return {
+    x: e.clientX - rect.left,
+    y: e.clientY - rect.top
+  };
+}

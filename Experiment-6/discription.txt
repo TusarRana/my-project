@@ -1,0 +1,58 @@
+Description of HTML, CSS, and JavaScript
+HTML (index.html)
+
+Purpose: Creates the basic structure of the drawing tool.
+
+Key Elements:
+
+<h2>: Displays the title SVG Drawing Tool.
+
+<svg>: The drawing area where the user can draw lines.
+
+width and height: Defines the canvas size (e.g., 600×400).
+
+xmlns: Ensures proper SVG rendering in browsers.
+
+Role: Provides a container for drawing and links to external CSS and JS files.
+
+CSS (style.css)
+
+Purpose: Styles the drawing tool for a clean, simple look.
+
+Key Rules:
+
+body: Centers content and sets background color.
+
+.container: Adds a border around the drawing tool.
+
+svg: Adds border to the drawing area and sets background color.
+
+Role: Enhances visual appeal without affecting functionality.
+
+JavaScript (script.js)
+
+Purpose: Implements drawing functionality.
+
+Key Processes:
+
+Event Listeners:
+
+mousedown – Starts drawing when the mouse is pressed.
+
+mousemove – Draws lines while moving the mouse.
+
+mouseup – Stops drawing when the mouse is released.
+
+SVG Line Creation:
+
+Creates <path> elements dynamically as the mouse moves.
+
+Updates d attribute to track drawing path coordinates.
+
+Variables:
+
+isDrawing: Tracks if the user is currently drawing.
+
+path: Stores the current line being drawn.
+
+d: Holds path coordinates.

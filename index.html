@@ -1,36 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtered Product List</title>
-    <link rel="stylesheet" href="Experiment-5.css">
+  <meta charset="UTF-8">
+  <title>SVG Drawing Tool</title>
+  <link rel="stylesheet" href="Experiment-6.css">
 </head>
 <body>
-    <div class="product-wrapper">
-        <h1>Available Products</h1>
-
-        <div class="filter-controls">
-            <label for="filterSelect">Choose Category:</label>
-            <select id="filterSelect">
-                <option value="All">All</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Books">Books</option>
-            </select>
-        </div>
-
-        <ul id="products" class="product-list" aria-live="polite">
-            <li class="product-card" data-category="Clothing">T-Shirt</li>
-            <li class="product-card" data-category="Clothing">Pants</li>
-            <li class="product-card" data-category="Electronics">Earphones</li>
-            <li class="product-card" data-category="Electronics">Smartphone</li>
-            <li class="product-card" data-category="Books">Diaries</li>
-            <li class="product-card" data-category="Books">Cookbook</li>
-        </ul>
-    </div>
-
-    <script src="javascript.js"></script>
+  <div class="container">
+    <h2>SVG Drawing Tool</h2>
+    <svg id="drawingArea" width="600" height="400"></svg>
+  </div>
+  <script src="javascript.js"></script>
 </body>
 </html>
-
